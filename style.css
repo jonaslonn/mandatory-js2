@@ -19,6 +19,12 @@ p {
   font-family: 'Gupter', serif;  
 }
 
+button {
+    padding: 10px 25px 10px 25px;
+    background-color: rgb(63, 155, 124);
+    color: White;
+}
+
 
 header {
     left:0;
