@@ -1,0 +1,43 @@
+body {
+    margin:0;
+    
+}
+
+h1 {
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 55px;
+    letter-spacing: 4px;
+    margin:0;
+    padding:0;
+}
+
+p {
+  font-family: 'Gupter', serif;  
+}
+
+
+header {
+    left:0;
+    right: 0;
+    top:0;
+    text-align: center;
+    width:100%;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    padding:20px 0 20px 0;
+}
+
+.main {
+    
+}
+
+.tictactoe {
+    margin: 0 auto;
+    background-color: teal;
+    width:500px;
+}
+
+.squares {
+    
+}
