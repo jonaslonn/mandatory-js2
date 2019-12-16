@@ -19,11 +19,96 @@
         </h1>
     </header>
 
-    <main>
+    <div class="main">
+      <p>Hejsan svejsan</p>
+
+
       <div class="tictactoe">
-        <p>Hejsan svejsan</p>
-      </div>      
-    </main>   
+        
+
+
+        <table>
+          <tr>
+            <td>
+              <a onclick="myFunction(1)">
+                <div id="1" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+            <td>
+              <a onclick="myFunction(2)">
+                <div id="2" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+            <td>
+              <a onclick="myFunction(3)">
+                <div id="3" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a onclick="myFunction(4)">
+                <div id="4" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+            <td>
+              <a onclick="myFunction(5)">
+                <div id="5" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+            <td>
+              <a onclick="myFunction(6)">
+                <div id="6" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a onclick="myFunction(7)">
+                <div id="7" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+            <td>
+              <a onclick="myFunction(8)">
+                <div id="8" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+            <td>
+              <a onclick="myFunction(9)">
+                <div id="9" class="square">
+                  
+                </div>
+              </a>              
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      
+    </div>   
     
+
+    <script>
+      function myFunction(value) {
+        document.getElementById(value).style.backgroundColor = "rgb(247, 149, 222)";
+        document.getElementById(value).innerHTML = "X";
+      }
+      </script>
 </body>
 </html>
