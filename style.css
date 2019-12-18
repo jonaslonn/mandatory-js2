@@ -25,6 +25,17 @@ button {
     color: White;
 }
 
+.stats {
+    float:left;
+    width:49%;
+    background-color: #000;
+    box-sizing: border-box;
+    padding: 20px 0 20px 0;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 25px;
+    border-radius: 15px;
+}
+
 
 header {
     left:0;

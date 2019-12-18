@@ -23,26 +23,6 @@
       <p>Welcome to play!</p>
 
       <div class="tictactoe">  
-      <div>
-        <div style="float:left;width:50%;">
-          <p>          
-          Player : O<br>
-          <div id="o">
-            0 wins              
-          </div>
-          </p>
-        </div>
-        <div style="float:left;width:50%;">
-          <p>          
-          Player : X<br>
-          <div id="x">
-            0 wins
-          </div>
-          </p>
-        </div>
-      </div>
-      <div style="clear:both;"></div>
-
         <table>
           <tr>
             <td>
@@ -114,10 +94,30 @@
             </td>
           </tr>
         </table>
+
+        <div style="margin:20px 0 20px 0;display:flex;">
+       
+          <div class="stats" style="margin-right:2%;color:rgb(255, 252, 78);">  
+            Player : X<br>
+            <div id="x">
+              0 wins
+            </div>         
+          </div>
+  
+          <div class="stats" style="color:rgb(78, 228, 255);">        
+            Player O<br>
+            <div id="o">
+              0 wins
+            </div>    
+          </div>
+        </div>
+        
+        <div style="clear:both;"></div>
+
+      <button>Reset game</button>        
       </div>
       
-      <br><br>
-      <button>Reset game</button>
+
     </div>   
 
 </body>
