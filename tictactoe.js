@@ -81,7 +81,6 @@ function play(value) {
         moves[2] === userChar && moves[4]  === userChar && moves[6]  === userChar
       )
       {
-
         alert("Winner " + userChar);
 
         // Lägger till en vinst för användaren som vann.   
@@ -95,10 +94,22 @@ function play(value) {
             console.log('Win for O with the new results: ' + o);
             o++;
             document.getElementById('o').innerHTML = o + ' Wins';
-
-
-          }
-            
-
+          }        
       }
-}
+    }
+
+
+
+    function resetGame() {
+
+        for(i = 0; i <= max; i++)
+        {
+            if(moves[i] === 'X' || moves[i] === 'O')
+            {                
+            document.getElementById(i).innerHTML = null;
+            document.getElementById(i).style.backgroundColor = '#E7E7E7';
+            moves[i] = null;     
+            }
+        }
+        
+      }
