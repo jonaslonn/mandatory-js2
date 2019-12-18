@@ -15,50 +15,44 @@ function play(value) {
     
     user = count % 2; // Modulus to controll user and char to user
     
-    // Bryter spelet vid max antal slag / avslutat spel
-    
+    // Bryter spelet vid max antal slag / avslutat spel    
     if(count === max)
     {
         alert("Spelet har avslutats.");
     }
     else {
 
-    document.getElementById(value).style.backgroundColor = "rgb(247, 149, 222)";
+            document.getElementById(value).style.backgroundColor = "rgb(247, 149, 222)";
 
-    // Skriver ut användbar info till konsollen.
-    console.log("Roundnumber:", count);
-    console.log("Selected col with id", value);
+            // Skriver ut användbar info till konsollen.
+            console.log("Roundnumber:", count);
+            console.log("Selected col with id", value);
 
+                // Kontrollerar vald ruta/array för att inte spela på samma.
+                if(moves[value] == null)
+                {        
+                    // Tilldela X eller O till varannan användare med hjälp utav modulus.
+                    if(user === 0) 
+                    {     
+                        userChar = 'X'; 
+                        document.getElementById(value).style.color = "rgb(78, 228, 255)";
 
-    // Tilldela X eller O till varannan användare med hjälp utav modulus.
-    if(user === 0) 
-    {     
-        userChar = 'X'; 
-        document.getElementById(value).style.color = "rgb(78, 228, 255)";
+                    } else { 
+                        userChar = 'O'; 
+                        document.getElementById(value).style.color = "rgb(255, 252, 78)";
+                    }
 
-    } else { 
-        userChar = 'O'; 
-        document.getElementById(value).style.color = "rgb(255, 252, 78)";
-    }
+                    document.getElementById(value).innerHTML = userChar; // Skriver ut symbol för användaren.       
+                    moves[value] = userChar; // Tilldela värdet i en array med värder/ID ifrån kolumnen
+                    count++; // Plussar på räknaren för att kontrollera om spelet är slut
 
-        // Kontrollerar vald ruta/array för att inte spela på samma.
-        if(moves[value] == null)
-        {        
-            document.getElementById(value).innerHTML = userChar; // Skriver ut symbol för användaren.       
-            moves[value] = userChar; // Tilldela värdet i en array med värder/ID ifrån kolumnen
-            count++; // Plussar på räknaren för att kontrollera om spelet är slut
-
-            gameResult(userChar, user); // Kontrollerar restultatet
-        }
-        else {
-            alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
-        }
-
-        
-
-        }
-        
-  }
+                    gameResult(userChar, user); // Kontrollerar restultatet
+                }
+                else {
+                    alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
+                }     
+        }  
+}
 
 
   
@@ -79,7 +73,7 @@ function play(value) {
         moves[2] === userChar && moves[4]  === userChar && moves[6]  === userChar
       )
       {
-          count = max;
+        count = max; // Sätter count till max för att spelet ska avslutas
         alert("And the Winner is: " + userChar);
 
         // Lägger till en vinst för användaren som vann.   
@@ -100,11 +94,8 @@ function play(value) {
 
 
 
-    //
-    // Resets the Game.
-    //
+    // Funktion för att Resetta spelet
     function resetGame() {
-
 
         count = 0;
         for(i = 0; i <= max; i++)
