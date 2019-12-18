@@ -45,7 +45,7 @@ function myFunction(value) {
             alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
         }
 
-
+        gameResult(userChar);
 
 
 
@@ -59,42 +59,6 @@ function myFunction(value) {
 
 
 
-    if(
-        // Vågrätt svar X
-        moves[0] === 'X' && moves[1]  === 'X' && moves[2]  === 'X' || 
-        moves[3] === 'X' && moves[4]  === 'X' && moves[5]  === 'X' || 
-        moves[6] === 'X' && moves[7]  === 'X' && moves[8]  === 'X' || 
-        
-        // Lodrätt svar X
-        moves[0] === 'X' && moves[3]  === 'X' && moves[6]  === 'X' || 
-        moves[1] === 'X' && moves[4]  === 'X' && moves[7]  === 'X' || 
-        moves[2] === 'X' && moves[5]  === 'X' && moves[8]  === 'X' || 
-
-        // Diagonala svar
-        moves[0] === 'X' && moves[4]  === 'X' && moves[8]  === 'X' || 
-        moves[2] === 'X' && moves[4]  === 'X' && moves[6]  === 'X' ||
-
-                // Vågrätt svar O
-                moves[0] === 'O' && moves[1]  === 'O' && moves[2]  === 'O' || 
-                moves[3] === 'O' && moves[4]  === 'O' && moves[5]  === 'O' || 
-                moves[6] === 'O' && moves[7]  === 'O' && moves[8]  === 'O' || 
-                
-                // Lodrätt svar X
-                moves[0] === 'O' && moves[3]  === 'O' && moves[6]  === 'O' || 
-                moves[1] === 'O' && moves[4]  === 'O' && moves[7]  === 'O' || 
-                moves[2] === 'O' && moves[5]  === 'O' && moves[8]  === 'O' || 
-        
-                // Diagonala svar
-                moves[0] === 'O' && moves[4]  === 'O' && moves[8]  === 'O' || 
-                moves[2] === 'O' && moves[4]  === 'O' && moves[6]  === 'O'
-    ) 
-    {
-        alert("Win");
-    }
-        
-
-
-
         // Bryter spelet vid max antal slag.
         // Lägger annars till en runda för kontroll utav maxrundor.
         if(count === max)
@@ -103,3 +67,26 @@ function myFunction(value) {
         }
         
   }
+
+
+  
+  // Funktion för att kontrollera vinst.
+  function gameResult(userChar) {
+      if(
+        moves[0] === userChar && moves[1]  === userChar && moves[2]  === userChar || 
+        moves[3] === userChar && moves[4]  === userChar && moves[5]  ===userChar || 
+        moves[6] === userChar && moves[7]  === userChar && moves[8]  === userChar || 
+        
+        // Lodrätt svar X
+        moves[0] === userChar && moves[3]  === userChar && moves[6]  === userChar || 
+        moves[1] === userChar && moves[4]  === userChar && moves[7]  === userChar || 
+        moves[2] === userChar && moves[5]  === userChar && moves[8]  === userChar || 
+
+        // Diagonala svar
+        moves[0] === userChar && moves[4]  === userChar && moves[8]  === userChar || 
+        moves[2] === userChar && moves[4]  === userChar && moves[6]  === userChar
+      )
+      {
+          alert("Winner " + userChar);
+      }
+}
