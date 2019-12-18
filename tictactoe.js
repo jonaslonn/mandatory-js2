@@ -1,16 +1,19 @@
 console.log("Welcome to tic tac toe");
 
-
 var count = 0; // Håller koll på vilken runda det är i spelet
 var max = 9; // Ant Max rundor
-var user;
-var userChar;
-var moves = [];
+var user; // Tillsammans med count och modulus så får man här två unika spelare.
+var userChar; // Kopplar till X eller Y till user
+var moves = []; // Array för att lagra data för de olika rutorna.
 
-function myFunction(value) {
+var x = 0; // Lagrar antalet vinster för X
+var o = 0; // Lagrar antalet vinster för O
 
-    // Modulus to controll user and char to user
-    user = count % 2;
+
+
+function play(value) {
+    
+    user = count % 2; // Modulus to controll user and char to user
     
     document.getElementById(value).style.backgroundColor = "rgb(247, 149, 222)";
 
@@ -45,16 +48,7 @@ function myFunction(value) {
             alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
         }
 
-        gameResult(userChar);
-
-
-
-
-    // Loopa arrayn för kontrollera värden
-    // for(i = count; i <= max; i++)
-    // {
-    //     console.log("ID:", moves[i], i);
-    // }
+        gameResult(userChar, user);
 
 
 
@@ -71,7 +65,7 @@ function myFunction(value) {
 
   
   // Funktion för att kontrollera vinst.
-  function gameResult(userChar) {
+  function gameResult(userChar, user) {
       if(
         moves[0] === userChar && moves[1]  === userChar && moves[2]  === userChar || 
         moves[3] === userChar && moves[4]  === userChar && moves[5]  ===userChar || 
@@ -87,6 +81,24 @@ function myFunction(value) {
         moves[2] === userChar && moves[4]  === userChar && moves[6]  === userChar
       )
       {
-          alert("Winner " + userChar);
+
+        alert("Winner " + userChar);
+
+        // Lägger till en vinst för användaren som vann.   
+          if(user === 0) 
+          {     
+            x++;
+            console.log('Win for X with the new results: ' + x);
+            document.getElementById('x').innerHTML = x + ' Wins';      
+          } else { 
+
+            console.log('Win for O with the new results: ' + o);
+            o++;
+            document.getElementById('o').innerHTML = o + ' Wins';
+
+
+          }
+            
+
       }
 }
