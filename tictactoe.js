@@ -15,6 +15,14 @@ function play(value) {
     
     user = count % 2; // Modulus to controll user and char to user
     
+    // Bryter spelet vid max antal slag / avslutat spel
+    
+    if(count === max)
+    {
+        alert("Spelet har avslutats.");
+    }
+    else {
+
     document.getElementById(value).style.backgroundColor = "rgb(247, 149, 222)";
 
     // Skriver ut användbar info till konsollen.
@@ -22,9 +30,7 @@ function play(value) {
     console.log("Selected col with id", value);
 
 
-    //
     // Tilldela X eller O till varannan användare med hjälp utav modulus.
-    //
     if(user === 0) 
     {     
         userChar = 'X'; 
@@ -35,29 +41,21 @@ function play(value) {
         document.getElementById(value).style.color = "rgb(255, 252, 78)";
     }
 
-        //
         // Kontrollerar vald ruta/array för att inte spela på samma.
-        //
         if(moves[value] == null)
         {        
-        document.getElementById(value).innerHTML = userChar; // Skriver ut symbol för användaren.       
-        moves[value] = userChar; // Tilldela värdet i en array med värder/ID ifrån kolumnen
-        count++; // Plussar på räknaren för att kontrollera om spelet är slut
+            document.getElementById(value).innerHTML = userChar; // Skriver ut symbol för användaren.       
+            moves[value] = userChar; // Tilldela värdet i en array med värder/ID ifrån kolumnen
+            count++; // Plussar på räknaren för att kontrollera om spelet är slut
+
+            gameResult(userChar, user); // Kontrollerar restultatet
         }
         else {
             alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
         }
 
-        gameResult(userChar, user);
+        
 
-
-
-
-        // Bryter spelet vid max antal slag.
-        // Lägger annars till en runda för kontroll utav maxrundor.
-        if(count === max)
-        {
-            alert("Max antal rundor spelade");
         }
         
   }
@@ -81,7 +79,8 @@ function play(value) {
         moves[2] === userChar && moves[4]  === userChar && moves[6]  === userChar
       )
       {
-        alert("Winner " + userChar);
+          count = max;
+        alert("And the Winner is: " + userChar);
 
         // Lägger till en vinst för användaren som vann.   
           if(user === 0) 
@@ -100,8 +99,14 @@ function play(value) {
 
 
 
+
+    //
+    // Resets the Game.
+    //
     function resetGame() {
 
+
+        count = 0;
         for(i = 0; i <= max; i++)
         {
             if(moves[i] === 'X' || moves[i] === 'O')
