@@ -18,7 +18,8 @@ function play(value) {
     // Bryter spelet vid max antal slag / avslutat spel    
     if(count === max)
     {
-        alert("Spelet har avslutats.");
+        // alert("Spelet har avslutats.");
+        modal('<span style=\"color:Red;\">The Game has ended!</span>');
     }
     else {
 
@@ -49,7 +50,8 @@ function play(value) {
                     gameResult(userChar, user); // Kontrollerar restultatet
                 }
                 else {
-                    alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
+                    //alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
+                    modal('<span style=\"color:Red;\">This square has already been taken!</span>');
                 }     
         }  
 }
@@ -74,7 +76,8 @@ function play(value) {
       )
       {
         count = max; // Sätter count till max för att spelet ska avslutas
-        alert("And the Winner is: " + userChar);
+        // alert("And the Winner is: " + userChar);
+        modal('<span style=\"color:Green;\">And the Winner is:</span> ' + userChar);
 
         // Lägger till en vinst för användaren som vann.   
           if(user === 0) 
@@ -108,4 +111,31 @@ function play(value) {
             }
         }
         
+      }
+
+
+
+      function modal(message) {
+      var modal = document.getElementById("myModal");
+
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+modal.style.display = "block";
+document.getElementById('message').innerHTML = message;
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
       }
