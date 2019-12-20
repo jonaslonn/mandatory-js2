@@ -105,8 +105,8 @@ function play(value) {
         {
             if(moves[i] === 'X' || moves[i] === 'O')
             {                
-            document.getElementById(i).innerHTML = null;
-            document.getElementById(i).style.backgroundColor = '#E7E7E7';
+            document.getElementById(i).innerHTML = ' ';
+            document.getElementById(i).style.backgroundColor = '';
             moves[i] = null;     
             }
         }
