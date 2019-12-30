@@ -1,13 +1,13 @@
 console.log("Welcome to tic tac toe");
 
-var count = 0; // Håller koll på vilken runda det är i spelet
-var max = 9; // Ant Max rundor
-var user; // Tillsammans med count och modulus så får man här två unika spelare.
-var userChar; // Kopplar till X eller Y till user
-var moves = []; // Array för att lagra data för de olika rutorna.
+let count = 0; // Håller koll på vilken runda det är i spelet
+const max = 9; // Ant Max rundor
+let user; // Tillsammans med count och modulus så får man här två unika spelare.
+let userChar; // Kopplar till X eller Y till user
+let moves = []; // Array för att lagra data för de olika rutorna.
 
-var x = 0; // Lagrar antalet vinster för X
-var o = 0; // Lagrar antalet vinster för O
+let x = 0; // Lagrar antalet vinster för X
+let o = 0; // Lagrar antalet vinster för O
 
 
 
@@ -18,7 +18,6 @@ function play(value) {
     // Bryter spelet vid max antal slag / avslutat spel    
     if(count === max)
     {
-        // alert("Spelet har avslutats.");
         modal('<span style=\"color:Red;\">The Game has ended!</span>');
     }
     else {
@@ -50,7 +49,6 @@ function play(value) {
                     gameResult(userChar, user); // Kontrollerar restultatet
                 }
                 else {
-                    //alert("Någon har redan spelat på denna rutan"); // Om arrayn har ett värde, varna spelaren om att det är upptaget.
                     modal('<span style=\"color:Red;\">This square has already been taken!</span>');
                 }     
         }  
@@ -62,7 +60,7 @@ function play(value) {
   function gameResult(userChar, user) {
       if(
         moves[0] === userChar && moves[1]  === userChar && moves[2]  === userChar || 
-        moves[3] === userChar && moves[4]  === userChar && moves[5]  ===userChar || 
+        moves[3] === userChar && moves[4]  === userChar && moves[5]  === userChar || 
         moves[6] === userChar && moves[7]  === userChar && moves[8]  === userChar || 
         
         // Lodrätt svar X
@@ -76,7 +74,6 @@ function play(value) {
       )
       {
         count = max; // Sätter count till max för att spelet ska avslutas
-        // alert("And the Winner is: " + userChar);
         modal('<span style=\"color:Green;\">And the Winner is:</span> ' + userChar);
 
         // Lägger till en vinst för användaren som vann.   
@@ -105,7 +102,7 @@ function play(value) {
         {
             if(moves[i] === 'X' || moves[i] === 'O')
             {                
-            document.getElementById(i).innerHTML = ' ';
+            document.getElementById(i).innerHTML = '';
             document.getElementById(i).style.backgroundColor = '';
             moves[i] = null;     
             }
@@ -114,28 +111,27 @@ function play(value) {
       }
 
 
-
       function modal(message) {
-      var modal = document.getElementById("myModal");
+      let modal = document.getElementById("myModal");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
 
 
+          modal.style.display = "block";
+          document.getElementById('message').innerHTML = message;
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
 
-
-modal.style.display = "block";
-document.getElementById('message').innerHTML = message;
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
       }
+
+
